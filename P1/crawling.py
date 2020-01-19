@@ -1,4 +1,4 @@
-__author__ = 'lichi'
+#__author__ = 'lichi'
 import csv
 import bottle
 import beaker.middleware
@@ -6,11 +6,14 @@ from bottle import route, redirect, post, run, request, hook
 from instagram import client, subscriptions
 from instagram.client import InstagramAPI
 import networkx as nx
+import argparse
+
 # this program is for crawl the deliverables from instagram from instagram API
 
-
-access_token = ["2195792816.4703390.fc85db689d894ff5a7636fd61787966c","2195792816.d296051.df7316c7fabf4726b2d7f7c0fcc03eca","2195792816.2d7542a.6fd2469ea72c425f860c6615d8e85b11","2195792816.7d3e419.bdbd41a3f8ab44b89a230651cff16081"]
-client_secret = ["84913b93461442d8811e7986c738224f","6c7bc9d050c0464b8c66e712034c1fe7","8836faa2a77b4003a89e5f363feb330b","08a95d597c31474db6080f3a016601fc"]
+parser = argparse.ArgumentParser()
+parser.add_argument('access_token')
+parser.add_argument('client_secret')
+args = parser.parse_args()
 #api = InstagramAPI(access_token=access_token, client_secret=client_secret)
 #recent_media, next_ = api.user_recent_media(user_id="2195792816", count=10)
 bottle.debug(True)
